@@ -21,6 +21,10 @@ struct maze* initialize_maze(FILE *fp) {
                 printf("Failed to read input file!\n");
                 return NULL;
         }
+	if (size - 1 > MAX_GRID_LENGTH) {
+		printf("Line is too big. Max row length is %d\n", MAX_GRID_LENGTH);
+		return NULL;
+	}
         /* First line of the input file determines the allowed width of the
          * maze. Exclude new line character.
          */
